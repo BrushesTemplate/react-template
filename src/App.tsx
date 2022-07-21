@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import routesConfig from './routes';
+import {useEffect, useState} from 'react';
 
-function App() {
+import WrapperContainer from './structure';
+import { shouldComputedPermission } from '@brushes/tools';
+console.log(routesConfig)
+const App = () => {
+  const [menus, setMenu] = useState([])
+  const [routes, setRoutes] = useState([]);
+  useEffect(() => {
+    initAuthority()
+  }, []);
+
+  function initAuthority() {
+    const arr = [] as any;
+    routesConfig.forEach(item => {
+      if(!!item.path) {
+        arr.push(item)
+      } else {
+        // @ts-ignore
+        arr.push(...item.children)
+      }
+    });
+    const menusList = shouldComputedPermission(routesConfig);
+    setRoutes(arr);
+    setMenu(menusList);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <WrapperContainer menus={menus}>
+          <Routes>
+            {routes.map(({ path, element }) => (
+              <Route
+                key={path}
+                path={path}
+                element={element}
+              />
+            ))}
+          </Routes>
+      </WrapperContainer>
+    </BrowserRouter>
+  )
 }
 
 export default App;
