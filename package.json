@@ -22,8 +22,8 @@
     ]
   },
   "dependencies": {
-    "@brushes/store": "^1.0.2",
-    "@brushes/tools": "^1.0.0",
+    "@brushes/store": "^1.0.4",
+    "@brushes/tools": "^1.0.19",
     "qin-form": "^1.0.3",
     "qj-application": "^0.1.5"
   },

@@ -1106,21 +1106,21 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@brushes/store@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@brushes/store/-/store-1.0.2.tgz#4455553980ac4f668a25eaf07118d3e10eafaa67"
-  integrity sha512-t3yU3E3ALZUAXNRNQqprWcPa0FPdWf92iQpRVDW03K7kxWKhN9feQm3veY4QdpyL6YgqDIyX2X635jrMkC7shw==
+"@brushes/store@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@brushes/store/-/store-1.0.4.tgz#43d0de92aec6466b1edbcda01d7902c5eef68b0a"
+  integrity sha512-RTir9fF1ymShD51v0CvuVfuY6YEeBmzsUMF7LRyAAPrXC1Ztc3Y3gxw7SbK6eukXzvrCAEOY0Fr24BgZLu3M6Q==
   dependencies:
-    "@brushes/tools" "^1.0.0"
+    "@brushes/tools" "^1.0.19"
     "@tanstack/react-query" "^4.0.10"
     "@types/node" "^18.0.4"
     prettier "^2.7.1"
     typescript "^4.7.4"
 
-"@brushes/tools@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@brushes/tools/-/tools-1.0.0.tgz#ef371c8889fd3a4191caac441b8084bf6295b74e"
-  integrity sha512-g65OpVnFhnAv+2HpmJ9JS5oHJS+vfxld3pKMcO+9XQBaHtsj/c/wIk4Vl0amr4hFFh3ZP46WN4GLSlG0cbbToA==
+"@brushes/tools@^1.0.19":
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/@brushes/tools/-/tools-1.0.19.tgz#a6153bb868aa42ae9dcaf640916c665c4fa28b4f"
+  integrity sha512-ZeupBTdAnYXrB9QT01UhAHmQr2BVo7mdCSKh/EMaKq8kS4ugF6MCMz3DP3uwn7mJmPW2Y8Z3Q828pB6MXnmdGA==
   dependencies:
     "@types/lodash-es" "^4.17.6"
     "@types/node" "^18.0.4"
