@@ -21,10 +21,9 @@ const GoodsJsx = () => {
       <Spacing>
         <Spin spinning={isLoading}>
           <Table
-            // style={{height}}
             scroll={{
               scrollToFirstRowOnChange: true,
-              y: height - 120,
+              y: `calc(100vh - ${height}px)`,
             }}
             onChange={onChange}
             rowKey={'goodsId'}

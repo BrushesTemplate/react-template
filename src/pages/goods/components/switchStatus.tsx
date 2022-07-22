@@ -1,4 +1,5 @@
 import { Switch } from 'antd';
+// @ts-ignore
 import { useGoodsImpl } from '@brushes/store'
 
 const SwitchStatus = ({ text, record }: { text: number; record: any }) => {
