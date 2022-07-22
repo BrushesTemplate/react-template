@@ -1,28 +1,27 @@
-import { DynamicForm } from 'qin-form'
+import {DynamicForm} from 'qin-form'
 import {Spin, Table} from 'antd';
-import { useGoods, useDynamicTableHeight } from '@brushes/store';
-import { formConfig, columns } from './config';
+import {useGoods, useDynamicTableHeight} from '@brushes/store';
+import {formConfig, columns} from './config';
 import {Spacing} from '../../components';
-const GoodsJsx = () => {
-  const { data = {}, pagination, isLoading, queryImpl, onChange } = useGoods('B2Cchannel', 'goods');
-  const { height = 0, measuredRef } = useDynamicTableHeight();
 
-  console.log(10,height)
+const GoodsJsx = () => {
+  const {data = {}, pagination, isLoading, queryImpl, onChange} = useGoods('B2Cchannel', 'goods');
+  const {height = 0, measuredRef} = useDynamicTableHeight();
+
   return (
     <div className={'container'} ref={measuredRef}>
       <Spacing padding={15}>
-      <DynamicForm
-        layout={'inline'}
-        fields={formConfig}
-        saveText={'查询'}
-        onSubmit={queryImpl}
-      />
+        <DynamicForm
+          layout={'inline'}
+          fields={formConfig}
+          saveText={'查询'}
+          onSubmit={queryImpl}
+        />
       </Spacing>
       <Spacing>
         <Spin spinning={isLoading}>
           <Table
-
-            style={{height}}
+            // style={{height}}
             scroll={{
               scrollToFirstRowOnChange: true,
               y: height - 120,

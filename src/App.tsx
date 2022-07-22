@@ -1,51 +1,21 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import routesConfig from './routes';
-import {useEffect, useState} from 'react';
+import { FC, Fragment } from "react";
+import Login from "./pages/noAuthor/login";
+// import { useAuth } from "libs/context/authorityProvider";
+import Author from "./pages";
+import { ErrorBoundary } from "./components/error";
+import { fullPageErrorFallback } from "./components/error/fullPageErrorFallBack";
+// import { useBackground } from "../libs/hooks";
 
-import WrapperContainer from './structure';
-import { shouldComputedPermission } from '@brushes/tools';
-console.log(routesConfig)
-const App = () => {
-  const [menus, setMenu] = useState([])
-  const [routes, setRoutes] = useState([]);
-  useEffect(() => {
-    initAuthority()
-  }, []);
-
-  function initAuthority() {
-    const arr = [] as any;
-    routesConfig.forEach(item => {
-      if(!!item.path) {
-        arr.push(item)
-      } else {
-        // @ts-ignore
-        arr.push(...item.children)
-      }
-    });
-    const menusList = shouldComputedPermission(routesConfig);
-    setRoutes(arr);
-    setMenu(menusList);
-  }
+const App: FC = () => {
+  // const { user } = useAuth();
+  const user = false
+  // useBackground("#e1e1e1");
 
   return (
-    <BrowserRouter>
-      <WrapperContainer menus={menus}>
-          <Routes>
-            {routes.map(({ path, element }) => (
-              <Route
-                key={path}
-                path={path}
-                element={element}
-              />
-            ))}
-          </Routes>
-      </WrapperContainer>
-    </BrowserRouter>
-  )
-}
+    <ErrorBoundary fallbackRender={fullPageErrorFallback}>
+      <Fragment>{user ? <Author /> : <Login />}</Fragment>
+    </ErrorBoundary>
+  );
+};
 
 export default App;

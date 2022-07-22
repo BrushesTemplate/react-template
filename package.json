@@ -25,7 +25,8 @@
     "@brushes/store": "^1.0.4",
     "@brushes/tools": "^1.0.19",
     "qin-form": "^1.0.3",
-    "qj-application": "^0.1.5"
+    "qj-application": "^0.1.5",
+    "sass": "^1.53.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",

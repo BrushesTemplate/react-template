@@ -19,6 +19,6 @@ code {
 }
 
 .site-layout .container {
-  height: 100%;
+  background: #f00;
   padding-right: 10px;
 }
