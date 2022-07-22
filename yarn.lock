@@ -1108,7 +1108,7 @@
 
 "@brushes/store@^1.0.4":
   version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@brushes/store/-/store-1.0.4.tgz#43d0de92aec6466b1edbcda01d7902c5eef68b0a"
+  resolved "https://registry.npmmirror.com/@brushes/store/-/store-1.0.4.tgz#43d0de92aec6466b1edbcda01d7902c5eef68b0a"
   integrity sha512-RTir9fF1ymShD51v0CvuVfuY6YEeBmzsUMF7LRyAAPrXC1Ztc3Y3gxw7SbK6eukXzvrCAEOY0Fr24BgZLu3M6Q==
   dependencies:
     "@brushes/tools" "^1.0.19"

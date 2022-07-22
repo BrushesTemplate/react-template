@@ -7,7 +7,6 @@ const GoodsJsx = () => {
   const { data = {}, pagination, isLoading, queryImpl, onChange } = useGoods('B2Cchannel', 'goods');
   const { height = 0, measuredRef } = useDynamicTableHeight();
 
-  console.log(10,height)
   return (
     <div className={'container'} ref={measuredRef}>
       <Spacing padding={15}>
@@ -21,11 +20,9 @@ const GoodsJsx = () => {
       <Spacing>
         <Spin spinning={isLoading}>
           <Table
-
-            style={{height}}
             scroll={{
               scrollToFirstRowOnChange: true,
-              y: height - 120,
+              y: `calc(100vh - ${height}px)`,
             }}
             onChange={onChange}
             rowKey={'goodsId'}
