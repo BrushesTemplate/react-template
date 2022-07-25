@@ -6,6 +6,9 @@ import {Spacing} from '../../components';
 
 const GoodsJsx = () => {
   const {data = {}, pagination, isLoading, queryImpl, onChange} = useGoods('B2Cchannel', 'goods');
+  const onChangeImpl = () => {
+    onChange(123123)
+  }
   const {height = 0, measuredRef} = useDynamicTableHeight();
 
   return (
@@ -25,7 +28,7 @@ const GoodsJsx = () => {
               scrollToFirstRowOnChange: true,
               y: `calc(100vh - ${height}px)`,
             }}
-            onChange={onChange}
+            onChange={onChangeImpl}
             rowKey={'goodsId'}
             columns={columns}
             dataSource={data.list}

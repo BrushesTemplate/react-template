@@ -1,21 +1,17 @@
 import { FC, Fragment } from "react";
 import Login from "./pages/noAuthor/login";
-// import { useAuth } from "libs/context/authorityProvider";
 import Author from "./pages";
+import { UserModal } from '@brushes/store';
 import { ErrorBoundary } from "./components/error";
 import { fullPageErrorFallback } from "./components/error/fullPageErrorFallBack";
-// import { useBackground } from "../libs/hooks";
 
 const App: FC = () => {
-  // const { user } = useAuth();
-  const user = false
-  // useBackground("#e1e1e1");
-
+  const { user } = UserModal.useContainer();
   return (
-    <ErrorBoundary fallbackRender={fullPageErrorFallback}>
-      <Fragment>{user ? <Author /> : <Login />}</Fragment>
-    </ErrorBoundary>
+      <ErrorBoundary fallbackRender={fullPageErrorFallback}>
+        <Fragment>{user ? <Author /> : <Login />}</Fragment>
+      </ErrorBoundary>
   );
 };
 
-export default App;
+export default () => <UserModal.Provider><App/></UserModal.Provider>;

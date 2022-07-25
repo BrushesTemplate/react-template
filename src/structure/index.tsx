@@ -1,16 +1,13 @@
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu } from 'antd';
+import { Breadcrumb, Layout, Menu, Dropdown, Button } from 'antd';
 import React, {ReactNode, useState} from 'react';
 import Wrapper from '../components/wrapper';
 import RenderMenu from './menu';
 import { useLocation, Link } from 'react-router-dom'
 import breadcrumbNameMap from '../routes/breadcrumbConfig';
+import TopMenu from './topMenu';
 const { Header, Content, Sider } = Layout;
 
-const items1 = ['商品模块'].map((key) => ({
-  key,
-  label: '商品模块',
-}));
 
 const getName = (url: string, index: number) => {
   // @ts-ignore
@@ -54,8 +51,7 @@ const WrapperContainer = ({children, menus}: { children: ReactNode; menus: Array
   return (
     <Layout>
       <Header className="header">
-        <span className="logo">logo</span>
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
+        <TopMenu />
       </Header>
       <Layout>
         <Sider
