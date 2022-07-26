@@ -12,6 +12,7 @@ const fieldsForm: Array<FieldType> = [
       placeholder: "手机号",
       style: {
         height: 40,
+        marginBottom: 5
       },
     },
   },
@@ -25,6 +26,7 @@ const fieldsForm: Array<FieldType> = [
       placeholder: "请输入登陆密码",
       style: {
         height: 40,
+        marginBottom: 5
       },
       type: "password",
     },

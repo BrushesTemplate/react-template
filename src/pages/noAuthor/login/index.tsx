@@ -6,6 +6,7 @@ import Form from 'antd/es/form';
 import { dynamicFormFields } from 'qin-form'
 import { UserModal } from '@brushes/store';
 import {Button, Checkbox} from 'antd';
+import Wave from "./components/wave";
 
 const Login: FC = () => {
   const [form] = Form.useForm();
@@ -15,6 +16,7 @@ const Login: FC = () => {
   }
   return (
     <div className={"loginComponent"}>
+      <Wave/>
       <div className="loginStyle">
         <img alt={"logo"} width={100} src={logo} />
         <Form

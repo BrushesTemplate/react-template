@@ -22,7 +22,7 @@
     ]
   },
   "dependencies": {
-    "@brushes/components": "^0.0.1",
+    "@brushes/components": "^0.0.2",
     "@brushes/store": "^1.0.5",
     "@brushes/tools": "^1.0.19",
     "qin-form": "^1.0.3",
