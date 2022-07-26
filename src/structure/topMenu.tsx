@@ -1,18 +1,21 @@
-import { Button, Dropdown, Menu } from 'antd';
+import { Avatar, Dropdown, Menu } from 'antd';
 import React from 'react';
 import './index.scss';
 import {UserModal} from '@brushes/store';
+import {QjIcon} from '@brushes/components';
 
 const MenuDrop = () => {
-  // const { user } = UserModal.useContainer();
+  const { loginOutImpl } = UserModal.useContainer();
+  console.log(loginOutImpl);
+
   return (
     <Menu
       items={[
         {
           key: '1',
           label: (
-            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-              1st menu item
+            <a onClick={() => loginOutImpl()} target="_blank" rel="noopener noreferrer">
+              退出账号
             </a>
           ),
         },
@@ -34,7 +37,11 @@ const TopMenu = () => {
       <span className="logo">logo</span>
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
       <Dropdown overlay={<MenuDrop/>} placement="bottomRight" arrow>
-        <p>{ user.userName }</p>
+        <div className='rightUser'>
+          <Avatar style={{ backgroundColor: '#f56a00' }}>{ user.userName.charAt(0).toUpperCase() }</Avatar>
+          <span>{ user.userName } </span>
+          <QjIcon style={{ marginRight: 5, color: '#fff' }} name={'icon-xialajiantouxiao'}/>
+        </div>
       </Dropdown>
     </div>
   )

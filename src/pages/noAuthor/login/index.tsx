@@ -14,7 +14,7 @@ const Login: FC = () => {
   const [form] = Form.useForm();
   const { loginImpl } = UserModal.useContainer();
   const onFinish = (values: any) => {
-    loginImpl(values, 'saas-token')
+    loginImpl(values)
   }
   return (
     <div className={"loginComponent"}>

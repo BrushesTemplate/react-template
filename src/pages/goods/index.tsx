@@ -2,10 +2,10 @@ import {DynamicForm} from 'qin-form'
 import {Spin, Table} from 'antd';
 import {useGoods, useDynamicTableHeight} from '@brushes/store';
 import {formConfig, columns} from './config';
-import {Spacing} from '../../components';
+import { SpacingJsx } from '@brushes/components';
 
 const GoodsJsx = () => {
-  const {data = {}, pagination, isLoading, queryImpl, onChange} = useGoods('B2Cchannel', 'goods');
+  const {data = {}, pagination, isLoading, queryImpl, onChange} = useGoods('goods');
   const onChangeImpl = () => {
     onChange(123123)
   }
@@ -13,15 +13,15 @@ const GoodsJsx = () => {
 
   return (
     <div className={'container'} ref={measuredRef}>
-      <Spacing padding={15}>
+      <SpacingJsx padding={15}>
         <DynamicForm
           layout={'inline'}
           fields={formConfig}
           saveText={'查询'}
           onSubmit={queryImpl}
         />
-      </Spacing>
-      <Spacing>
+      </SpacingJsx>
+      <SpacingJsx>
         <Spin spinning={isLoading}>
           <Table
             scroll={{
@@ -35,7 +35,7 @@ const GoodsJsx = () => {
             pagination={pagination}
           />
         </Spin>
-      </Spacing>
+      </SpacingJsx>
     </div>
   )
 }

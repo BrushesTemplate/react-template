@@ -1,7 +1,7 @@
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, Dropdown, Button } from 'antd';
+import { Breadcrumb, Layout } from 'antd';
 import React, {ReactNode, useState} from 'react';
-import Wrapper from '../components/wrapper';
+import { Wrapper } from '@brushes/components';
 import RenderMenu from './menu';
 import { useLocation, Link } from 'react-router-dom'
 import breadcrumbNameMap from '../routes/breadcrumbConfig';
@@ -55,19 +55,12 @@ const WrapperContainer = ({children, menus}: { children: ReactNode; menus: Array
       </Header>
       <Layout>
         <Sider
+          className="sider"
           collapsible
           trigger={React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
               className: 'trigger',
               onClick: () => setCollapsed(!collapsed),
             })}
-          style={{
-            overflow: 'auto',
-            height: `calc(100vh - 64px)`,
-            position: 'sticky',
-            left: 0,
-            top: 64,
-            bottom: 0,
-          }}
         >
           {RenderMenu(menus)}
         </Sider>
