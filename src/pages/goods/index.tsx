@@ -1,8 +1,7 @@
-import {DynamicForm} from 'qin-form'
 import {Spin, Table} from 'antd';
 import {useGoods, useDynamicTableHeight} from '@brushes/store';
 import {formConfig, columns} from './config';
-import { SpacingJsx } from '@brushes/components';
+import { SpacingJsx, DynamicForm } from '@brushes/components';
 
 const GoodsJsx = () => {
   const {data = {}, pagination, isLoading, queryImpl, onChange} = useGoods('goods');

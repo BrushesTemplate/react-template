@@ -8,7 +8,6 @@ import {useEffect, useState} from 'react';
 
 import WrapperContainer from '../structure';
 import { shouldComputedPermission } from '@brushes/tools';
-console.log(routesConfig)
 const App = () => {
   const [menus, setMenu] = useState([])
   const [routes, setRoutes] = useState([]);

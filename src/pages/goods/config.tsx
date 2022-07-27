@@ -1,6 +1,6 @@
 import {Space, Button, Switch} from 'antd';
 import React from 'react';
-import { FieldType } from 'qin-form/dist/esm/form/types';
+import { FieldType } from '@brushes/components';
 import { ColumnsType } from 'antd/es/table';
 import SwitchStatus from './components/switchStatus';
 export const formConfig: Array<FieldType> = [

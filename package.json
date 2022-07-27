@@ -22,9 +22,10 @@
     ]
   },
   "dependencies": {
-    "@brushes/components": "^0.0.3",
-    "@brushes/tools": "^1.0.19",
-    "qin-form": "^1.0.3",
+    "@brushes/components": "^0.0.5",
+    "@brushes/materials": "^0.0.1",
+    "@brushes/store": "^1.0.9",
+    "@brushes/tools": "^1.0.18",
     "qj-application": "^0.1.5",
     "sass": "^1.53.0"
   },

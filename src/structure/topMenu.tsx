@@ -30,7 +30,7 @@ const items1 = ['商品模块'].map((key) => ({
 }));
 
 const TopMenu = () => {
-  const { user } = UserModal.useContainer();
+  const { user = {} } = UserModal.useContainer();
 
   return (
     <div className={'topMenu'}>
