@@ -61,14 +61,6 @@ const GoodsJsx = () => {
             </Button>
           </div>
         </Form>
-        {/*<DynamicForm*/}
-        {/*  layout={'inline'}*/}
-        {/*  fields={formConfig}*/}
-        {/*  saveText={'查询'}*/}
-        {/*  onSubmit={queryImpl}*/}
-        {/*/>*/}
-      </SpacingJsx>
-      <SpacingJsx>
         <DrawerJsx close={close} setClose={setClose}>
           <DynamicForm
             initialValues={formInitialValue.current}
