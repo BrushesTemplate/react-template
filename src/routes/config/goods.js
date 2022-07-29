@@ -13,7 +13,7 @@ const goods = [
         label: "商品列表",
         icon: <ContainerOutlined />,
         auth: "goods.list",
-        path: GOODS_PATH,
+        key: GOODS_PATH,
         element: <Goods />,
       },
     ],

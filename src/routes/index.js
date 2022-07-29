@@ -1,6 +1,8 @@
-import camelCase from "lodash/camelCase";
+import { _ } from "@brushes/tools";
 import Home from "./../pages/home";
 import { DEFAULT } from "./routesPath";
+
+const { camelCase } = _;
 
 class Api {
   constructor() {}
@@ -38,9 +40,8 @@ const routes = opt.BaseApi(requireUrl);
 const routesConfig = [
   {
     id: 0,
-    path: DEFAULT,
+    key: DEFAULT,
     label: `首页`,
-    exact: true,
     element: <Home />,
   },
 ];

@@ -1,35 +1,93 @@
-import {Spin, Table} from 'antd';
-import {useGoods, useDynamicTableHeight} from '@brushes/store';
-import {formConfig, columns} from './config';
-import { SpacingJsx, DynamicForm } from '@brushes/components';
+import {Spin, Table, Button, Form} from 'antd';
+import {
+  useGoods,
+  useDynamicTableHeight,
+  useImmutableCallback,
+  useMaretialConfigImpl
+} from '@brushes/store';
+import {SpacingJsx, DynamicForm, QjIcon, dynamicFormFields, useFormImpl} from '@brushes/components';
+import DrawerJsx from './components/drawer';
+import { defaultFormConfig, defaultColumns } from './config';
+import './index.scss'
 
 const GoodsJsx = () => {
+  const [ form ] = Form.useForm();
   const {data = {}, pagination, isLoading, queryImpl, onChange} = useGoods('goods');
-  const onChangeImpl = () => {
-    onChange(123123)
-  }
   const {height = 0, measuredRef} = useDynamicTableHeight();
+
+  const {
+    configFormFields,
+    formConfig,
+    setClose,
+    close,
+    changeImpl,
+    tableColumns,
+    formInitialValue
+  } = useMaretialConfigImpl(defaultColumns, defaultFormConfig);
+
+  const onChangeImpl = useImmutableCallback((params:any) => {
+    onChange(params)
+  })
+
+  const { loading, onFinish, onFinishFailed } = useFormImpl(
+    form,
+    queryImpl
+  );
 
   return (
     <div className={'container'} ref={measuredRef}>
       <SpacingJsx padding={15}>
-        <DynamicForm
+        <Form
           layout={'inline'}
-          fields={formConfig}
-          saveText={'查询'}
-          onSubmit={queryImpl}
-        />
+          form={form}
+          className="normal_search"
+          onFinishFailed={onFinishFailed}
+          onFinish={onFinish}
+        >
+          <div className={'normal_item'}>
+            {dynamicFormFields(formConfig, form)}
+          </div>
+          <div className={"operate"}>
+            <Button
+              loading={loading}
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+            >
+              查询
+            </Button>
+            <Button danger onClick={() => setClose(true)}>
+              <QjIcon name={'icon-caozuojilu'}/>
+            </Button>
+          </div>
+        </Form>
+        {/*<DynamicForm*/}
+        {/*  layout={'inline'}*/}
+        {/*  fields={formConfig}*/}
+        {/*  saveText={'查询'}*/}
+        {/*  onSubmit={queryImpl}*/}
+        {/*/>*/}
+      </SpacingJsx>
+      <SpacingJsx>
+        <DrawerJsx close={close} setClose={setClose}>
+          <DynamicForm
+            initialValues={formInitialValue.current}
+            onSubmit={changeImpl}
+            fields={configFormFields.current}
+            saveText={'更新配置'}
+          />
+        </DrawerJsx>
       </SpacingJsx>
       <SpacingJsx>
         <Spin spinning={isLoading}>
           <Table
             scroll={{
               scrollToFirstRowOnChange: true,
-              y: `calc(100vh - ${height}px)`,
+              y: height - 45,
             }}
             onChange={onChangeImpl}
             rowKey={'goodsId'}
-            columns={columns}
+            columns={tableColumns}
             dataSource={data.list}
             pagination={pagination}
           />

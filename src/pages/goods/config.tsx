@@ -3,7 +3,7 @@ import React from 'react';
 import { FieldType } from '@brushes/components';
 import { ColumnsType } from 'antd/es/table';
 import SwitchStatus from './components/switchStatus';
-export const formConfig: Array<FieldType> = [
+export const defaultFormConfig: Array<FieldType> = [
     {
         label: '商品名称',
         name: 'goodsName',
@@ -21,19 +21,41 @@ export const formConfig: Array<FieldType> = [
         }
     },
     {
+        label: '库存',
+        name: 'goodsNum',
+        type: 'number',
+        extraProps: {
+            style: {
+                width: '100%'
+            },
+            placeholder: '请输入库存'
+        }
+    },
+    {
+        label: '价格',
+        name: 'pricesetNprice',
+        type: 'number',
+        extraProps: {
+            style: {
+                width: '100%'
+            },
+            placeholder: '请输入价格'
+        }
+    },
+    {
         label: '是否上架',
         name: 'dataOpbillstate',
         type: 'select',
         extraProps: {
             allowClear: 'true',
             style: {
-                width: 120
+                width: '100%'
             },
             placeholder: '请输入商品名称',
             options: [
                 {
                     label: '全部',
-                    value: '2'
+                    value: ''
                 },
                 {
                     label: '是',
@@ -72,7 +94,8 @@ export const formConfig: Array<FieldType> = [
     // },
 ];
 
-export const columns: ColumnsType<any> = [
+
+export const defaultColumns: ColumnsType<any> = [
     {
         title: '序号',
         dataIndex: 'orderNumber',
@@ -115,12 +138,6 @@ export const columns: ColumnsType<any> = [
         width: 150,
         dataIndex: 'classtreeName',
         key: 'classtreeName'
-    },
-    {
-        title: '品牌',
-        width: 150,
-        dataIndex: 'brandName',
-        key: 'brandName'
     },
     {
         title: '品牌',

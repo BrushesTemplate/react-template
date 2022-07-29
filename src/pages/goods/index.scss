@@ -1,0 +1,14 @@
+.normal_search{
+  display: grid;
+  grid-template-columns: auto 120px;
+  .normal_item{
+    display: grid;
+    grid-gap: 10px 10px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .operate{
+    margin-right: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -18,7 +18,7 @@ const App = () => {
   function initAuthority() {
     const arr = [] as any;
     routesConfig.forEach(item => {
-      if(!!item.path) {
+      if(!!item.key) {
         arr.push(item)
       } else {
         // @ts-ignore
@@ -34,10 +34,10 @@ const App = () => {
     <BrowserRouter>
       <WrapperContainer menus={menus}>
         <Routes>
-          {routes.map(({ path, element }) => (
+          {routes.map(({ key, element }) => (
             <Route
-              key={path}
-              path={path}
+              key={key}
+              path={key}
               element={element}
             />
           ))}

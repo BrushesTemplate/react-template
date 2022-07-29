@@ -7,7 +7,6 @@ import { fullPageErrorFallback } from "./components";
 
 const App: FC = () => {
   const { user } = UserModal.useContainer();
-  console.log(typeof user)
   return (
       <ErrorBoundary fallbackRender={fullPageErrorFallback}>
         <Fragment>{user ? <Author /> : <Login />}</Fragment>
