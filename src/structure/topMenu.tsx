@@ -6,7 +6,6 @@ import {QjIcon} from '@brushes/components';
 
 const MenuDrop = () => {
   const { loginOutImpl } = UserModal.useContainer();
-  console.log(loginOutImpl);
 
   return (
     <Menu
@@ -34,7 +33,7 @@ const TopMenu = () => {
 
   return (
     <div className={'topMenu'}>
-      <span className="logo">logo</span>
+      <QjIcon name={'icon-QJ'} style={{ color: '#fff', fontSize: 30}}/>
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
       <Dropdown overlay={<MenuDrop/>} placement="bottomRight" arrow>
         <div className='rightUser'>

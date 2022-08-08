@@ -1,9 +1,21 @@
 import { Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {produce} from '@brushes/tools';
+import isEmpty from 'lodash/isEmpty';
 
-const RenderMenu = (config: any[]) => {
+const RenderMenu = ({menu}: {menu: any[]}) => {
+  const [config, setConfig] = useState(menu);
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if(isEmpty(menu)) return;
+    const configMenu = produce(menu, draft => {
+      draft[0].children = draft[0].children.filter((item:any) => !item.noMenu)
+     })
+    setConfig(configMenu)
+  }, [menu])
+
   const handlerClick = (item: any) => {
     navigate(item.key);
   }

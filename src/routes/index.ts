@@ -7,9 +7,8 @@ const { camelCase } = _;
 class Api {
   constructor() {}
 
-  BaseApi(params, postfix = "") {
-    let BaseObj = {};
-    console.log(9, params.keys());
+  BaseApi(params: __WebpackModuleApi.RequireContext, postfix = "") {
+    let BaseObj = {} as any;
     params.keys().forEach((fileName) => {
       // 获取目录对象
       const ApiConfig = params(fileName);
@@ -37,16 +36,10 @@ const requireUrl = require.context(
 
 const routes = opt.BaseApi(requireUrl);
 
-const routesConfig = [
-  {
-    id: 0,
-    key: DEFAULT,
-    label: `首页`,
-    element: <Home />,
-  },
-];
+const routesConfig = [] as Array<any>;
 
 Object.keys(routes).forEach((item) => {
+  // @ts-ignore
   const getRoutes = routes[item];
   routesConfig.push(...getRoutes);
 });

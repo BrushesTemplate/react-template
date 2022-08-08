@@ -1,0 +1,108 @@
+import React from 'react';
+import {FieldType} from '@brushes/components';
+import {CategoryJsx, CategoryTableJsx} from '../matetials';
+import {FormInstance} from 'antd/es/form';
+import isUndefined from 'lodash/isUndefined';
+
+export const catelogConfig: Array<FieldType> = [
+    {
+        name: 'category',
+        type: 'slot',
+        calIsVisible: ({ getFieldValue } : FormInstance) => !isUndefined(getFieldValue(['basic', 'platform'])),
+        extraProps: {
+            render: ({form}: { form: FormInstance }) => <CategoryJsx namePath={['basic', 'platform']} form={form}/>
+        }
+    }
+];
+
+const columns = [
+    {
+        title: '规格值',
+        dataIndex: 'skuName',
+        key: 'skuName',
+        width: '15%',
+    },
+    {
+        title: '货品编号',
+        dataIndex: 'skuNo',
+        editable: true,
+        width: '15%',
+        key: 'customname',
+        formConfig: {
+            style: { width: 200 }
+        },
+    },
+    {
+        title: '销售价',
+        dataIndex: 'pricesetNprice',
+        editable: true,
+        width:'15%',
+        key: 'tenantid',
+        formConfig: {
+            type: "number",
+        },
+    },
+    {
+        title: '市场价',
+        dataIndex: 'pricesetMakeprice',
+        editable: true,
+        width: '15%',
+        key: 'tenantid',
+        formConfig: {
+            type: "number",
+        },
+    },
+    {
+        title: '成本价',
+        dataIndex: 'pricesetAsprice',
+        editable: true,
+        width: '15%',
+        key: 'tenantid',
+        formConfig: {
+            type: "number",
+        },
+    },
+    {
+        title: '重量',
+        dataIndex: 'goodsWeight',
+        editable: true,
+        width:'15%',
+        key: 'tenantid',
+        formConfig: {
+            type: "number",
+        },
+    },
+    {
+        title: '库存',
+        dataIndex: 'goodsNum',
+        editable: true,
+        width: '15%',
+        key: 'tenantid',
+        formConfig: {
+            type: "number",
+        },
+    }
+]
+export const catalogTableConfig: Array<FieldType> = [
+    {
+        name: 'category',
+        type: 'slot',
+        // calIsVisible: ({ getFieldValue } : FormInstance) => !isUndefined(getFieldValue(['basic', 'category'])),
+        extraProps: {
+            render: ({form}: { form: FormInstance }) => {
+                const category = form.getFieldValue('category') || [];
+                const initialValue = form.getFieldValue('rsSpecValueDomainList') || []
+                return (
+                  <CategoryTableJsx
+                    columns={columns}
+                    category={category}
+                    initialValue={initialValue}
+                    namePath={'rsSpecValueDomainList'}
+                    form={form}
+                  />
+                )
+            }
+
+        }
+    }
+]

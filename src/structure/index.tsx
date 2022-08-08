@@ -62,13 +62,13 @@ const WrapperContainer = ({children, menus}: { children: ReactNode; menus: Array
               onClick: () => setCollapsed(!collapsed),
             })}
         >
-          {RenderMenu(menus)}
+          <RenderMenu menu={menus}/>
         </Sider>
         <Layout
           className="site-layout"
         >
           <Breadcrumb style={{
-            padding: '16px',
+            padding: '14px',
             background: '#fff'
           }}>{generateBreadcrumb()}</Breadcrumb>
           <Content

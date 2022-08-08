@@ -1,5 +1,6 @@
 @import '@brushes/components/css';
 .topMenu{
+  align-items: center;
   display: grid;
   grid-template-columns: 100px auto 120px;
   .rightUser{

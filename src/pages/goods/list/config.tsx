@@ -2,7 +2,14 @@ import {Space, Button, Switch} from 'antd';
 import React from 'react';
 import { FieldType } from '@brushes/components';
 import { ColumnsType } from 'antd/es/table';
-import SwitchStatus from './components/switchStatus';
+
+import {
+    PlusCircleOutlined,
+    EditOutlined,
+} from '@ant-design/icons'
+import {BaseButtonProps} from 'antd/lib/button/button';
+import {useGoodsImpl, useImmutableCallback} from '@brushes/store';
+
 export const defaultFormConfig: Array<FieldType> = [
     {
         label: '商品名称',
@@ -95,6 +102,23 @@ export const defaultFormConfig: Array<FieldType> = [
 ];
 
 
+interface OperateType extends BaseButtonProps{
+    code: string;
+    name: string;
+}
+export const operate : Array<OperateType> = [
+    {
+        code: 'view',
+        name: '查看',
+        icon: <PlusCircleOutlined />,
+        type: 'primary'
+    },
+    {
+        code: 'editor',
+        name: '编辑',
+        icon: <EditOutlined />,
+    }
+]
 export const defaultColumns: ColumnsType<any> = [
     {
         title: '序号',
@@ -115,7 +139,7 @@ export const defaultColumns: ColumnsType<any> = [
         key: 'goodsShowno'
     },
     {
-        width: 80,
+        width: 120,
         title: '价格',
         dataIndex: 'pricesetNprice',
         key: 'pricesetNprice'
@@ -150,13 +174,34 @@ export const defaultColumns: ColumnsType<any> = [
         width: 200,
         fixed: 'right',
         dataIndex: 'action',
-        render: (text: string, record: object) => {
-            return (
-                <Space>
-                    <Button type={'link'}>查看</Button>
-                    <Button type={'link'}>编辑</Button>
-                </Space>
-            );
-        }
+        render: (text: string, record: object) => <OperateJsx record={record}/>
     }
 ];
+
+const SwitchStatus = ({ text, record }: { text: number; record: any }) => {
+    const { update } = useGoodsImpl(['goods'])
+    const onChange = (value:any) => {
+        const { goodsId = '' } = record;
+        update({ goodsId, dataState: value ? 2 : 0, channelCode: 'B2Cchannel' })
+    }
+
+    return <Switch checked={text === 2} onChange={onChange} />
+}
+
+const OperateJsx = ({record} : {record: object}) => {
+    const { operateImpl } = useGoodsImpl(['goods'])
+
+    const operateHandler = useImmutableCallback((e:any) => {
+        operateImpl(e, record)
+    })
+
+    return (
+      <Space onClick={operateHandler}>
+          {operate.map(({ code, name, ...props }) => (
+            <Button data-code={code} {...props} key={code}>
+                {name}
+            </Button>
+          ))}
+      </Space>
+    )
+}
