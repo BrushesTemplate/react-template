@@ -31,7 +31,7 @@ const combine = (...chunks: Array<any>) => {
   return res
 };
 
-const CategoryTable = ({form, namePath, initialValue, category, columns}:
+const CategoryTable = ({form, namePath, initialValue, category = [], columns}:
                          { initialValue: Array<any>;
                            category: Array<any>;
                            columns: Array<any>;
@@ -40,20 +40,24 @@ const CategoryTable = ({form, namePath, initialValue, category, columns}:
 
   const [dataSource, setDataSource] = useState(initialValue);
   const isFirst = useRef(true);
+
   useEffect(() => {
-    console.log(43, isFirst.current, initialValue, category)
     const list = combine(...category);
     let arr = initialValue
     if(!isFirst.current) {
-      arr = list.map((item: any) => ({
-        skuName: item.join(','),
-        skuNo: form.getFieldValue(['basic','goodsNo']),
-        goodsNum: form.getFieldValue(['basic','inventory']),
-        goodsWeight: form.getFieldValue(['basic','unitConversion']),
-        pricesetNprice: form.getFieldValue(['price','pricesetNprice']),
-        pricesetMakeprice: form.getFieldValue(['price','pricesetMakeprice']),
-        pricesetAsprice: form.getFieldValue(['price', 'pricesetAsprice']),
-      }))
+      arr = list.map((item: any) => {
+        const preItem = (initialValue || []).find(citem => item.join(',') === citem.skuName);
+        return {
+          skuName: item.join(','),
+          skuNo: form.getFieldValue(['basic','goodsNo']),
+          goodsNum: form.getFieldValue(['basic','inventory']),
+          goodsWeight: form.getFieldValue(['basic','unitConversion']),
+          pricesetNprice: form.getFieldValue(['price','pricesetNprice']),
+          pricesetMakeprice: form.getFieldValue(['price','pricesetMakeprice']),
+          pricesetAsprice: form.getFieldValue(['price', 'pricesetAsprice']),
+          ...preItem
+        }
+      })
     }
     setDataSource(arr);
     return () => {

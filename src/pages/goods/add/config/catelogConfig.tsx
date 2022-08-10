@@ -1,16 +1,40 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {FieldType} from '@brushes/components';
 import {CategoryJsx, CategoryTableJsx} from '../matetials';
 import {FormInstance} from 'antd/es/form';
 import isUndefined from 'lodash/isUndefined';
 
-export const catelogConfig: Array<FieldType> = [
+export const catelogConfig: Array<any> = [
     {
         name: 'category',
         type: 'slot',
         calIsVisible: ({ getFieldValue } : FormInstance) => !isUndefined(getFieldValue(['basic', 'platform'])),
         extraProps: {
             render: ({form}: { form: FormInstance }) => <CategoryJsx namePath={['basic', 'platform']} form={form}/>
+        }
+    },
+    {
+        name: 'rsSpecValueDomainList',
+        type: 'slot',
+        labelCol: { span: 0 },
+        wrapperCol: { span: 24 },
+        // calIsVisible: ({ getFieldValue } : FormInstance) => !isUndefined(getFieldValue(['basic', 'category'])),
+        extraProps: {
+            render: ({form}: { form: FormInstance }) => {
+                const namePath = useRef(['catelog', 'rsSpecValueDomainList']);
+                const category = form.getFieldValue(['catelog', 'category']);
+                const initialValue = form.getFieldValue(['catelog', 'rsSpecValueDomainList'])
+                return (
+                  <CategoryTableJsx
+                    columns={columns}
+                    category={category}
+                    initialValue={initialValue}
+                    namePath={namePath.current}
+                    form={form}
+                  />
+                )
+            }
+
         }
     }
 ];
@@ -81,28 +105,5 @@ const columns = [
         formConfig: {
             type: "number",
         },
-    }
-]
-export const catalogTableConfig: Array<FieldType> = [
-    {
-        name: 'category',
-        type: 'slot',
-        // calIsVisible: ({ getFieldValue } : FormInstance) => !isUndefined(getFieldValue(['basic', 'category'])),
-        extraProps: {
-            render: ({form}: { form: FormInstance }) => {
-                const category = form.getFieldValue('category') || [];
-                const initialValue = form.getFieldValue('rsSpecValueDomainList') || []
-                return (
-                  <CategoryTableJsx
-                    columns={columns}
-                    category={category}
-                    initialValue={initialValue}
-                    namePath={'rsSpecValueDomainList'}
-                    form={form}
-                  />
-                )
-            }
-
-        }
     }
 ]

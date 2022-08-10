@@ -23,9 +23,9 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@brushes/components": "^0.0.15",
-    "@brushes/materials": "^0.0.14",
-    "@brushes/store": "^1.0.26",
+    "@brushes/components": "^0.0.17",
+    "@brushes/materials": "^0.0.17",
+    "@brushes/store": "^1.0.27",
     "@brushes/tools": "^1.0.23",
     "@wangeditor/editor": "^5.1.14",
     "@wangeditor/editor-for-react": "^1.0.4",

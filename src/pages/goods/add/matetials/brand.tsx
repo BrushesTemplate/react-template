@@ -3,13 +3,13 @@ import { queryBrandRelationPage } from '@brushes/store';
 import { useEffect, useState } from 'react';
 import {dynamicFormFields, FieldType, NamePath} from '@brushes/components';
 import { _ } from '@brushes/tools';
-import {useParams} from 'react-router-dom';
+import {useSearchParams} from 'react-router-dom';
 
 const { set } = _;
 
 export const BrandJsx = ({form, namePath}: { form: FormInstance; namePath: NamePath }) => {
   const value = form.getFieldValue(namePath);
-  let { code = '000000003' } = useParams();
+  let [searchParams, ]  = useSearchParams();
 
   const [config, setConfig] = useState<Array<FieldType>>([
     {
@@ -26,7 +26,7 @@ export const BrandJsx = ({form, namePath}: { form: FormInstance; namePath: NameP
   useEffect(() => {
     (async () => {
       // @ts-ignore
-      const pntreeCode = window.pntreeCode || code
+      const pntreeCode = window.pntreeCode || searchParams.get('code')
       const data = await queryBrandRelationPage({ pntreeCode }) as any;
       set(config, '[0].extraProps.options', data?.list);
       setConfig([...config])

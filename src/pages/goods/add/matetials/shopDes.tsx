@@ -10,7 +10,7 @@ export function ShopDes({ form }: { form: FormInstance }) {
   const [editor, setEditor] = useState<IDomEditor | null>(null)   // TS 语法
 
   // 编辑器内容
-  const [html, setHtml] = useState()
+  const [html, setHtml] = useState(() => form.getFieldValue(['shopDes', 'region']))
 
   // 工具栏配置
   const toolbarConfig: Partial<IToolbarConfig> = { }  // TS 语法
@@ -44,7 +44,6 @@ export function ShopDes({ form }: { form: FormInstance }) {
   }, [editor])
 
   const onChange = (params: any) => {
-    console.log(params.getHtml())
     form.setFieldValue(['shopDes', 'region'], params.getHtml())
   }
 

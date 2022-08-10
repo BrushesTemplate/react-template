@@ -1,4 +1,3 @@
-// import {configsType} from './index';
 import React from 'react';
 
 
@@ -9,7 +8,6 @@ import {
   shippingConfig,
   shopDesConfig,
   catelogConfig,
-  catalogTableConfig
 } from '../config';
 
 export const pageConfig = {
@@ -36,14 +34,6 @@ export const pageConfig = {
     editable: true,
     title: '商品规格',
     metadata: catelogConfig,
-  },
-  'catalogTable': {
-    columns: 1,
-    name: 'catalogTableForm',
-    type: 'form',
-    editable: true,
-    title: '',
-    metadata: catalogTableConfig,
   },
   'shopDes': {
     name: 'shopDesForm',

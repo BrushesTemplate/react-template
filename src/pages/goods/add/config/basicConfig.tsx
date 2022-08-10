@@ -2,7 +2,8 @@ import React from 'react';
 import {FormInstance} from 'antd/es/form';
 import get from 'lodash/get';
 import isUndefined from 'lodash/isUndefined';
-import {BrandJsx} from '../matetials';
+import { BrandJsx } from '../matetials';
+import { DetailImage } from '@brushes/components';
 export const basicConfig: Array<any> = [
     {
         label: '商品分类',
@@ -82,17 +83,11 @@ export const basicConfig: Array<any> = [
         label: '商品图片',
         name: 'goodsimage',
         type: 'upload',
-        suffixicon: <span style={{fontSize: 12, color: '#999'}}>建议上传400X400像素的图片</span>,
         rules: [{required: true, message: '请选择商品图片'}],
-        render() {
-            return (
-              <div>
-                  <img width={100}
-                       src={'https://gimg3.baidu.com/search/src=http%3A%2F%2Fpics4.baidu.com%2Ffeed%2F4e4a20a4462309f7b7066a1cd5cf70f9d6cad69b.jpeg%3Ftoken%3D3a894fac1fde3c91686509d5981c781e&refer=http%3A%2F%2Fwww.baidu.com&app=2021&size=f360,240&n=0&g=0n&q=75&fmt=auto?sec=1655312400&t=eae33008a18db790e8534c986357a092'}/>
-              </div>
-            )
-        },
+        render: DetailImage,
         extraProps: {
+            suffixicon: <span style={{fontSize: 12, color: '#999'}}>建议上传400X400像素的图片</span>,
+            accept: "image/*",
             maxCount: 5,
             listType: "picture-card",
             text: '上传图片',
@@ -103,6 +98,7 @@ export const basicConfig: Array<any> = [
         name: 'goodsvideo',
         type: 'upload',
         extraProps: {
+            accept: "video/*",
             maxCount: 1,
             text: '上传视频',
         }

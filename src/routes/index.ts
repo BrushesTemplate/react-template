@@ -1,6 +1,4 @@
 import { _ } from "@brushes/tools";
-import Home from "./../pages/home";
-import { DEFAULT } from "./routesPath";
 
 const { camelCase } = _;
 

@@ -5,8 +5,9 @@ export const shopDesConfig: Array<FieldType> = [
     {
         name: 'region',
         type: 'slot',
+        labelCol: { span: 0 },
+        wrapperCol: { span: 24 },
         extraProps: {
-            placeholder: '请选择商品分类',
             render: ShopDes
         }
     },

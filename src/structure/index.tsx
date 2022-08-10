@@ -9,35 +9,39 @@ import TopMenu from './topMenu';
 const { Header, Content, Sider } = Layout;
 
 
-const getName = (url: string, index: number) => {
-  // @ts-ignore
-  let name = breadcrumbNameMap[url];
-  if(index === 0) {
-    return name
-  } else {
-    const flag = breadcrumbNameMap.hasOwnProperty(url);
-    /**
-     * flag为true匹配成功
-     */
-    if(!flag) {
-      const ind = url.lastIndexOf("/");
-      const str:string = url.slice(0, ind+1) + ':id';
-      // @ts-ignore
-      name = breadcrumbNameMap[str]
-    }
-    return <Link to={url}>{name}</Link>
-  }
-};
+// const getName = (url: string, index: number) => {
+//   // @ts-ignore
+//   let name = breadcrumbNameMap[url];
+//   if(index === 0) {
+//     return name
+//   } else {
+//     const flag = breadcrumbNameMap.hasOwnProperty(url);
+//     /**
+//      * flag为true匹配成功
+//      */
+//     if(!flag) {
+//       const ind = url.lastIndexOf("/");
+//       const str:string = url.slice(0, ind+1) + ':id';
+//       // @ts-ignore
+//       name = breadcrumbNameMap[str]
+//     }
+//     return <Link to={url}>{name}</Link>
+//   }
+// };
 
 const generateBreadcrumb = () => {
   const location = useLocation();
-  const pathSnippets = location.pathname.split('/').filter((i) => i);
+  const pathSnippets = location.pathname.split('/').filter(i => i);
+
   const extraBreadcrumbItems = pathSnippets.map((_, index) => {
     const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
+    // @ts-ignore
+    const path = breadcrumbNameMap[url];
+    const isLaster = pathSnippets.length === index + 1;
     return (
       <Breadcrumb.Item key={url}>
         {
-          getName(url, index)
+          isLaster ? <span style={{fontWeight: 500}}>{ path }</span> : <Link to={url}>{ path }</Link>
         }
       </Breadcrumb.Item>
     );

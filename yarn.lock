@@ -1120,10 +1120,10 @@
   resolved "https://registry.npmjs.org/@brushes/components/-/components-0.0.15.tgz#edd393e457591b3213544378e8649feb292a4c93"
   integrity sha512-f2XdwMB0PZ3u0uU6mgoMHGdnZQ7igpW5BAzk5x+ltqUk1lRdCeg6G5xj09wlTppHfVmPt/tY+IRMdJB9BdgQww==
 
-"@brushes/materials@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.npmjs.org/@brushes/materials/-/materials-0.0.14.tgz#00ca0fbc2950112ac047eb546a1bb1db5b54cb03"
-  integrity sha512-slBitWO6FGRCvNsCVd9eNPr2fkEnRe792UMsJ09GRTJvNK5ZHCzoBtZj3QeNKS5iJDcEmLKH/oh/K8V8eJi+9Q==
+"@brushes/materials@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.npmjs.org/@brushes/materials/-/materials-0.0.15.tgz#d9b0cd29b80eb1ee94bf4997148b4aa8542a03db"
+  integrity sha512-s2hbipplUp3b32btyu6B4nCtLbN88Lh1Bh7QgLdwsC4++HZacpv+wSjm4YR16StkbJdxcDRnExxgxpzKzbZMMg==
 
 "@brushes/store@^1.0.26":
   version "1.0.26"
