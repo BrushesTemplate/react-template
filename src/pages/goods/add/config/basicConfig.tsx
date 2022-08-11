@@ -1,9 +1,11 @@
 import React from 'react';
 import {FormInstance} from 'antd/es/form';
 import { _ } from '@brushes/tools';
-import { BrandJsx } from '../matetials';
-import { DetailImage } from '@brushes/components';
+import {DetailImage, dynamicFormFields, NamePath} from '@brushes/components';
+import {useGoodsBrandList} from '@brushes/store';
+
 const { get, isUndefined } = _;
+
 export const basicConfig: Array<any> = [
     {
         label: '商品分类',
@@ -74,8 +76,13 @@ export const basicConfig: Array<any> = [
         label: '品牌选择',
         calIsVisible: ({ getFieldValue } : FormInstance) => !isUndefined(getFieldValue(['basic', 'platform'])),
         extraProps: {
-            render: ({form}: { form: FormInstance }) => {
-                return <BrandJsx namePath={['basic', 'platform']} form={form}/>
+            render: ({form, name}: { name: NamePath; form: FormInstance }) => {
+                const config = useGoodsBrandList(name, form, ['basic', 'platform']);
+                return (
+                  <>
+                      {dynamicFormFields(config, form)}
+                  </>
+                )
             }
         }
     },

@@ -1120,15 +1120,18 @@
   resolved "https://registry.npmjs.org/@brushes/components/-/components-0.0.19.tgz#9048876c00d6aeb46f874adf0f65cb0b99457fc5"
   integrity sha512-vo6IaWh9zdg+l2hn6vonRb/O+UG77JWvGO2S1g4TR6BgVPIXlMT/irNIs5+TbgF/usHkLyH1SOH2tPzWs1ulJg==
 
-"@brushes/materials@^0.0.18":
-  version "0.0.18"
-  resolved "https://registry.npmjs.org/@brushes/materials/-/materials-0.0.18.tgz#8e92865cc761307182a4b2a444fda80cc03929d1"
-  integrity sha512-jC5dI0qkusOy7qqbL3in5/85ApvxxwcrsbiGE2lZqrSL98c+SoLDOiSoBs3WRDdrbIEKAn+92XeuL/3jFlIXhw==
+"@brushes/materials@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.npmjs.org/@brushes/materials/-/materials-0.0.20.tgz#0ac15a60e81edfd6828489621a1fe84aa7a36cc7"
+  integrity sha512-8Kf22BY3YvkHVeFotJ3UTUpwlD+oFQfXQOvlwxQCPmaOgT/i/dV8kC3Ri6Kg+zNYz3it7v5oLEVwyANKZ0ROlA==
+  dependencies:
+    "@wangeditor/editor" "^5.1.14"
+    "@wangeditor/editor-for-react" "^1.0.4"
 
-"@brushes/store@^1.0.30":
-  version "1.0.30"
-  resolved "https://registry.npmjs.org/@brushes/store/-/store-1.0.30.tgz#0cbde05064aad3d81501682a09c655fd24c37f26"
-  integrity sha512-/Hi8tTvXPq0NA/FE1YhzrCnnIrDADoRn4PLBcxpiQwjU9IYxxDPAfBbtiarzE+r3a0wVrizT6juqWpJ8lRKpDg==
+"@brushes/store@^1.0.32":
+  version "1.0.32"
+  resolved "https://registry.npmjs.org/@brushes/store/-/store-1.0.32.tgz#6c7b32c8af3d8f5810e4a0dd9907a3e2b26f344d"
+  integrity sha512-wP+uQ9/ye98X8GKthMLcQRB0175YiSIiCl4zSPv/m2zzuvzT4Dmco+mSzquLzB7/Wm9QlapT2h1507VFFqGesw==
 
 "@brushes/tools@^1.0.25":
   version "1.0.25"

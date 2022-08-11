@@ -1,8 +1,9 @@
-import React, {useRef} from 'react';
-import {FieldType} from '@brushes/components';
-import {CategoryJsx, CategoryTableJsx} from '../matetials';
+import React from 'react';
 import {FormInstance} from 'antd/es/form';
 import { _ } from '@brushes/tools';
+import {dynamicFormFields, NamePath} from '@brushes/components';
+import { useCategoryList, useCategoryTable } from '@brushes/store';
+import { TableJsx } from '@brushes/materials';
 
 const { isUndefined } = _;
 
@@ -12,7 +13,14 @@ export const catelogConfig: Array<any> = [
         type: 'slot',
         calIsVisible: ({ getFieldValue } : FormInstance) => !isUndefined(getFieldValue(['basic', 'platform'])),
         extraProps: {
-            render: ({form}: { form: FormInstance }) => <CategoryJsx namePath={['basic', 'platform']} form={form}/>
+            render: ({form, name}: { name: NamePath; form: FormInstance }) => {
+                const config = useCategoryList(name, form, ['basic', 'platform']);
+                return (
+                  <>
+                      {dynamicFormFields(config, form)}
+                  </>
+                )
+            }
         }
     },
     {
@@ -22,17 +30,17 @@ export const catelogConfig: Array<any> = [
         wrapperCol: { span: 24 },
         // calIsVisible: ({ getFieldValue } : FormInstance) => !isUndefined(getFieldValue(['basic', 'category'])),
         extraProps: {
-            render: ({form}: { form: FormInstance }) => {
-                const namePath = useRef(['catelog', 'rsSpecValueDomainList']);
-                const category = form.getFieldValue(['catelog', 'category']);
-                const initialValue = form.getFieldValue(['catelog', 'rsSpecValueDomainList'])
+            render: ({form, name}: { form: FormInstance; name: NamePath }) => {
+                const config = useCategoryTable(form, name, ['catelog', 'category']);
                 return (
-                  <CategoryTableJsx
-                    columns={columns}
-                    category={category}
-                    initialValue={initialValue}
-                    namePath={namePath.current}
+                  <TableJsx
+                    dataSource={config}
                     form={form}
+                    rowKey={'skuName'}
+                    pagination={false}
+                    name={name}
+                    columns={columns}
+                    transformSubmitDataConfig={[]}
                   />
                 )
             }

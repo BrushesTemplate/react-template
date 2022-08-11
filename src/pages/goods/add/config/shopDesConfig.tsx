@@ -1,5 +1,5 @@
-import { FieldType } from '@brushes/components';
-import { ShopDes } from '../matetials';
+import {FieldType} from '@brushes/components';
+import {WangEditor} from '@brushes/materials';
 
 export const shopDesConfig: Array<FieldType> = [
     {
@@ -8,7 +8,7 @@ export const shopDesConfig: Array<FieldType> = [
         labelCol: { span: 0 },
         wrapperCol: { span: 24 },
         extraProps: {
-            render: ShopDes
+            render: WangEditor
         }
     },
 ];
