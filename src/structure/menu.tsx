@@ -1,9 +1,9 @@
 import { Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
-import {produce} from '@brushes/tools';
-import isEmpty from 'lodash/isEmpty';
+import {produce, _ } from '@brushes/tools';
 
+const { isEmpty } = _;
 const RenderMenu = ({menu}: {menu: any[]}) => {
   const [config, setConfig] = useState(menu);
   const navigate = useNavigate()

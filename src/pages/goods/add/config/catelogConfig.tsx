@@ -2,7 +2,9 @@ import React, {useRef} from 'react';
 import {FieldType} from '@brushes/components';
 import {CategoryJsx, CategoryTableJsx} from '../matetials';
 import {FormInstance} from 'antd/es/form';
-import isUndefined from 'lodash/isUndefined';
+import { _ } from '@brushes/tools';
+
+const { isUndefined } = _;
 
 export const catelogConfig: Array<any> = [
     {

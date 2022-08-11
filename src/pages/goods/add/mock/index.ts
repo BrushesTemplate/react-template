@@ -1,6 +1,6 @@
 import { pageConfig } from './common';
 import {TransformType} from '@brushes/components';
-import {uploadGoodsFiles, uploadImpl} from '@brushes/store';
+import { uploadImpl } from '@brushes/store';
 
 export const transformDataConfig: Array<TransformType> = [
   {

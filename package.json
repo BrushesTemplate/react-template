@@ -23,10 +23,10 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@brushes/components": "^0.0.17",
-    "@brushes/materials": "^0.0.17",
-    "@brushes/store": "^1.0.27",
-    "@brushes/tools": "^1.0.23",
+    "@brushes/components": "^0.0.19",
+    "@brushes/materials": "^0.0.18",
+    "@brushes/store": "^1.0.30",
+    "@brushes/tools": "^1.0.25",
     "@wangeditor/editor": "^5.1.14",
     "@wangeditor/editor-for-react": "^1.0.4",
     "qj-application": "^0.1.9",
@@ -38,7 +38,7 @@
     "@types/webpack-env": "^1.17.0",
     "husky": "^8.0.1",
     "lint-staged": ">=10",
-    "prettier": "2.7.1"
+    "prettier": "^2.7.1"
   },
   "lint-staged": {
     "*.{js,css,md, ts, tsx}": "prettier --write"

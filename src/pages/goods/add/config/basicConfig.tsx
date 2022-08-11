@@ -1,9 +1,9 @@
 import React from 'react';
 import {FormInstance} from 'antd/es/form';
-import get from 'lodash/get';
-import isUndefined from 'lodash/isUndefined';
+import { _ } from '@brushes/tools';
 import { BrandJsx } from '../matetials';
 import { DetailImage } from '@brushes/components';
+const { get, isUndefined } = _;
 export const basicConfig: Array<any> = [
     {
         label: '商品分类',
@@ -97,6 +97,7 @@ export const basicConfig: Array<any> = [
         label: '视频上传',
         name: 'goodsvideo',
         type: 'upload',
+        render: DetailImage,
         extraProps: {
             accept: "video/*",
             maxCount: 1,
