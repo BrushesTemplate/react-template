@@ -1,0 +1,24 @@
+@import '@brushes/components/css';
+.topMenu{
+  align-items: center;
+  display: grid;
+  grid-template-columns: 100px auto 120px;
+  .rightUser{
+    align-items: center;
+    display: grid;
+    color: #fff;
+    grid-template-columns: 40px auto 25px;
+    span{
+      @include textLine(1)
+    }
+  }
+}
+.slider{
+  overflow: auto;
+  height: calc(100vh - 64px);
+  position: sticky;
+  left: 0;
+  top: 64px;
+  bottom: 0;
+}
+
