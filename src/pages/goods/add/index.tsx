@@ -1,8 +1,8 @@
 import {config, transformDataConfig} from './mock';
-import {DetailComponents} from '@brushes/materials';
-import {useGoodsAddAndEditor} from '@brushes/store';
+import {DetailComponents, goodsDetail} from '@brushes/materials';
 import {getStorage} from '@brushes/tools';
 
+const { useGoodsAddAndEditor } = goodsDetail
 
 export const DetailGoodsJsx = () => {
   return <EditorGoodsJsx/>

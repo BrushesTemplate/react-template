@@ -2,9 +2,10 @@ import React from 'react';
 import {FormInstance} from 'antd/es/form';
 import { _ } from '@brushes/tools';
 import {dynamicFormFields, NamePath} from '@brushes/components';
-import { useCategoryList, useCategoryTable } from '@brushes/store';
+import { goodsDetail } from '@brushes/materials';
 import { TableJsx } from '@brushes/materials';
 
+const { useCategoryList, useCategoryTable } = goodsDetail
 const { isUndefined } = _;
 
 export const catelogConfig: Array<any> = [
