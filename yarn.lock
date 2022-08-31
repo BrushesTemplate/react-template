@@ -1128,15 +1128,15 @@
     "@wangeditor/editor" "^5.1.14"
     "@wangeditor/editor-for-react" "^1.0.4"
 
-"@brushes/store@^1.0.32":
-  version "1.0.32"
-  resolved "https://registry.npmjs.org/@brushes/store/-/store-1.0.32.tgz#6c7b32c8af3d8f5810e4a0dd9907a3e2b26f344d"
-  integrity sha512-wP+uQ9/ye98X8GKthMLcQRB0175YiSIiCl4zSPv/m2zzuvzT4Dmco+mSzquLzB7/Wm9QlapT2h1507VFFqGesw==
+"@brushes/store@^1.0.36":
+  version "1.0.36"
+  resolved "https://registry.npmjs.org/@brushes/store/-/store-1.0.36.tgz#563c8816d7e9cd18202325a200bc230e538f9330"
+  integrity sha512-pIJVl4eFaKCrnJVVYNFPnWKFAvUA+MJ6Gr4+eKMlM3EkxjDXvKa6hj7SBJEGycZVnp2jUcqybVzuQLechLxKjA==
 
-"@brushes/tools@^1.0.25":
-  version "1.0.25"
-  resolved "https://registry.npmjs.org/@brushes/tools/-/tools-1.0.25.tgz#32679eeb286ef837a6185a0aa95f83bc8873921a"
-  integrity sha512-h+2Ti0PTfYLoxlXA/P/gPfTIZli1fwU/EbnQlCh/iEXG37kFJqo0z2g36JWmmeVfPIbaOTymjL0twHmBaIxCZQ==
+"@brushes/tools@^1.0.29":
+  version "1.0.29"
+  resolved "https://registry.npmjs.org/@brushes/tools/-/tools-1.0.29.tgz#ecba44d7418b12016878ac8f1890633c09937a04"
+  integrity sha512-B8qGraHrLNTDtxPTg5zwMFUDdbKCcnXZWbAig12/sefV0b+chzgIhNcKA+D1dePUAT+WqLklLJmTyygW875c3A==
   dependencies:
     "@types/lodash-es" "^4.17.6"
     immer "^9.0.15"
